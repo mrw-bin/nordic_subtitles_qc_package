@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://YOUR-FUNCTION-APP.azurewebsites.net"
+      "url": "https://subtitleqcengine-fbf2cyejg0h2c8a6.swedencentral-01.azurewebsites.net"
     }
   ],
   "paths": {
