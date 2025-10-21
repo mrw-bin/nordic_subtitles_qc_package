@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "REPORT_BASE_URL": "https://YOUR-SHAREPOINT-SITE/Subtitles/QC/",
+    "STORAGE_CONTAINER": "qc-artifacts"
+  }
+}

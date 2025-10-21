@@ -1,0 +1,4 @@
+
+# Minimal, no external subtitle libs required
+azure-functions
+lxml

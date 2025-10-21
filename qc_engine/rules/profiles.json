@@ -1,0 +1,51 @@
+{
+  "profiles": {
+    "Netflix-SV": {
+      "maxLines": 2,
+      "maxCpl": 42,
+      "minDurationSec": 0.833,
+      "maxDurationSec": 7.0,
+      "lineBreakHeuristics": [
+        "afterPunct",
+        "beforeConj",
+        "beforePrep"
+      ],
+      "ellipsis": {
+        "char": "\u2026",
+        "noSpacesWithinSentence": true
+      },
+      "positioning": "center",
+      "dualSpeakerDash": true,
+      "targetCps": 17
+    },
+    "SVT-SE": {
+      "maxLines": 2,
+      "minCpl": 36,
+      "maxCpl": 45,
+      "continuationDashNoSpaces": true,
+      "targetCps": 14
+    },
+    "NRK-NO": {
+      "maxLines": 2,
+      "targetCps": 14,
+      "minDurationSec": 1.0,
+      "maxDurationSec": 7.0,
+      "dualSpeakerDash": true
+    },
+    "DR-DK": {
+      "maxLines": 2,
+      "maxCpl": 40,
+      "targetCps": 15
+    },
+    "Yle-FI (fi)": {
+      "maxLines": 2,
+      "maxCpl": 42,
+      "targetCps": 15
+    },
+    "Yle-FI (sv)": {
+      "maxLines": 2,
+      "maxCpl": 42,
+      "targetCps": 15
+    }
+  }
+}

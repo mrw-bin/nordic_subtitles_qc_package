@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Nordic Subtitles QC API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://YOUR-FUNCTION-APP.azurewebsites.net"
+    }
+  ],
+  "paths": {
+    "/api/qc/run": {
+      "post": {
+        "summary": "Run QC on a subtitle file",
+        "operationId": "RunQC",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fileUrl": {
+                    "type": "string"
+                  },
+                  "profile": {
+                    "type": "string"
+                  },
+                  "targetCPS": {
+                    "type": "number"
+                  },
+                  "extraOptions": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "fileUrl",
+                  "profile"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "QC result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "issues": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "metrics": {
+                      "type": "object"
+                    },
+                    "preview": {
+                      "type": "string"
+                    },
+                    "reportUrl": {
+                      "type": "string"
+                    },
+                    "normalizedFileUrl": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/qc/fix": {
+      "post": {
+        "summary": "Apply fixes to a subtitle file",
+        "operationId": "Fix",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fileUrl": {
+                    "type": "string"
+                  },
+                  "profile": {
+                    "type": "string"
+                  },
+                  "autoFixMode": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "safe-only",
+                      "llm-rewrite-with-approval"
+                    ]
+                  },
+                  "selectedRules": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "fileUrl",
+                  "profile",
+                  "autoFixMode"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fix results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "fixedFileUrl": {
+                      "type": "string"
+                    },
+                    "diffUrl": {
+                      "type": "string"
+                    },
+                    "issuesResolved": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "issuesRemaining": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

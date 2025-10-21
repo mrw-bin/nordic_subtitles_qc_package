@@ -1,0 +1,66 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "Large",
+      "weight": "Bolder",
+      "text": "Subtitles QC Results"
+    },
+    {
+      "type": "FactSet",
+      "facts": [
+        {
+          "title": "Profile",
+          "value": "${profile}"
+        },
+        {
+          "title": "Total cues",
+          "value": "${metrics.count}"
+        },
+        {
+          "title": "Avg CPS",
+          "value": "${metrics.avgCPS}"
+        },
+        {
+          "title": "Over CPS",
+          "value": "${metrics.overCPS}"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Top issues:",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${topIssues}"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Fix (safe-only)",
+      "data": {
+        "intent": "fix",
+        "autoFixMode": "safe-only"
+      }
+    },
+    {
+      "type": "Action.Submit",
+      "title": "Fix (LLM approve)",
+      "data": {
+        "intent": "fix",
+        "autoFixMode": "llm-rewrite-with-approval"
+      }
+    },
+    {
+      "type": "Action.OpenUrl",
+      "title": "Open full report",
+      "url": "${reportUrl}"
+    }
+  ]
+}
