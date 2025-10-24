@@ -1,3 +1,20 @@
 {
-  "version": "2.0"
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 5
+      },
+      "enableLiveMetrics": true
+    },
+    "logLevel": {
+      "default": "Information",
+      // Bump your function’s logger to Debug when needed
+      "Function.qc_http_function": "Debug",
+      // Useful categories:
+      "azure.functions.worker": "Information",
+      "host.results": "Information"
+    }
+  }
 }
