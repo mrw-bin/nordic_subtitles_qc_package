@@ -22,20 +22,26 @@
                 "type": "object",
                 "properties": {
                   "fileUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Optional URL to fetch subtitle file. Not used in demo."
+                  },
+                  "contentBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded subtitle content"
+                  },
+                  "filename": {
+                    "type": "string",
+                    "description": "Filename to help detect subtitle format",
+                    "default": "input.srt"
                   },
                   "profile": {
-                    "type": "string"
-                  },
-                  "targetCPS": {
-                    "type": "number"
-                  },
-                  "extraOptions": {
-                    "type": "object"
+                    "type": "string",
+                    "description": "QC profile to use",
+                    "default": "Netflix-SV"
                   }
                 },
                 "required": [
-                  "fileUrl",
+                  "contentBase24",
                   "profile"
                 ]
               }
